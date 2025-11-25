@@ -1,0 +1,16 @@
+{
+  "name": "mindloom-landing-page",
+  "version": "1.0.0",
+  "description": "MindLoom landing page with self-contained waitlist API",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.80.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
+

@@ -161,15 +161,8 @@
             messageDiv.className = 'form-message';
             
             try {
-                // Determine API URL based on current domain
-                let apiUrl;
-                if (window.location.hostname === 'localhost') {
-                    apiUrl = 'http://localhost:3001/api/waitlist';
-                } else {
-                    // Production API URL - Next.js app with waitlist endpoint
-                    // Update this to your actual Next.js app deployment URL
-                    apiUrl = 'https://mindloom-frontend.vercel.app/api/waitlist';
-                }
+                // Use local API endpoint (same origin - no CORS needed!)
+                const apiUrl = '/api/waitlist';
                 
                 const response = await fetch(apiUrl, {
                     method: 'POST',
