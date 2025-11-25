@@ -161,10 +161,17 @@
             messageDiv.className = 'form-message';
             
             try {
-                // Determine API URL - use relative path if same domain, or full URL if different
-                const apiUrl = window.location.hostname === 'localhost' 
-                    ? 'http://localhost:3001/api/waitlist'
-                    : 'https://your-domain.com/api/waitlist'; // Update this to your actual domain
+                // Determine API URL based on current domain
+                let apiUrl;
+                if (window.location.hostname === 'localhost') {
+                    apiUrl = 'http://localhost:3001/api/waitlist';
+                } else if (window.location.hostname.includes('mindloom.ink')) {
+                    // Landing page is on mindloom.ink, API is on app subdomain
+                    apiUrl = 'https://app.mindloom.ink/api/waitlist';
+                } else {
+                    // Fallback - update this to your actual Next.js app URL
+                    apiUrl = 'https://app.mindloom.ink/api/waitlist';
+                }
                 
                 const response = await fetch(apiUrl, {
                     method: 'POST',
