@@ -165,12 +165,10 @@
                 let apiUrl;
                 if (window.location.hostname === 'localhost') {
                     apiUrl = 'http://localhost:3001/api/waitlist';
-                } else if (window.location.hostname.includes('mindloom.ink')) {
-                    // Landing page is on mindloom.ink, API is on app subdomain
-                    apiUrl = 'https://app.mindloom.ink/api/waitlist';
                 } else {
-                    // Fallback - update this to your actual Next.js app URL
-                    apiUrl = 'https://app.mindloom.ink/api/waitlist';
+                    // Production API URL - Next.js app with waitlist endpoint
+                    // Update this to your actual Next.js app deployment URL
+                    apiUrl = 'https://mindloom-frontend.vercel.app/api/waitlist';
                 }
                 
                 const response = await fetch(apiUrl, {
