@@ -56,29 +56,19 @@ body {
     text-decoration: none;
 }
 
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    border-radius: 8px;
-    position: relative;
-}
-
-.logo-icon::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px;
-    height: 24px;
-    background: white;
-    border-radius: 4px;
-    opacity: 0.3;
+.logo-image {
+    width: 280px;
+    height: 88px;
+    object-fit: contain;
+    flex-shrink: 0;
+    pointer-events: none;
 }
 
 .logo-text {
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family: 'Inter', serif;
 }
 
 .nav {
@@ -191,6 +181,21 @@ body {
     align-items: center;
 }
 
+.hero-video {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3);
+    background: var(--bg-light);
+}
+
+.hero-video:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+/* Fallback magazine mockup - kept for reference */
 .magazine-mockup {
     perspective: 1000px;
 }
@@ -512,6 +517,10 @@ button:disabled {
 
     .form-group {
         flex-direction: column;
+    }
+
+    .hero-video {
+        max-width: 100%;
     }
 
     .magazine-cover {

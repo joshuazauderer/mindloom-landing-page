@@ -4,13 +4,14 @@
   "description": "MindLoom landing page with self-contained waitlist API",
   "main": "index.html",
   "scripts": {
-    "dev": "vercel dev"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.80.0"
+    "@supabase/supabase-js": "^2.80.0",
+    "dotenv": "^16.6.1"
   },
   "engines": {
     "node": ">=18.x"
   }
 }
-
