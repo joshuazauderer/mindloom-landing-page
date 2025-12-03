@@ -49,26 +49,33 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 24px;
+    gap: 8px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--text-dark);
     text-decoration: none;
 }
 
 .logo-image {
-    width: 280px;
-    height: 88px;
+    width: 140px;
+    height: 44px;
     object-fit: contain;
     flex-shrink: 0;
     pointer-events: none;
+}
+
+/* Footer logo can be larger */
+.footer-logo .logo-image {
+    width: 200px;
+    height: 63px;
 }
 
 .logo-text {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    font-family: 'Inter', serif;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
 }
 
 .nav {
@@ -95,7 +102,7 @@ body {
     gap: 64px;
     align-items: center;
     padding: 80px 0;
-    min-height: 80vh;
+    min-height: auto;
 }
 
 .hero-content {
@@ -178,16 +185,18 @@ body {
 .hero-image {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .hero-video {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3);
     background: var(--bg-light);
+    display: block;
 }
 
 .hero-video:focus {
@@ -476,6 +485,19 @@ button:disabled {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .header {
+        padding: 16px 0;
+    }
+
+    .logo-image {
+        width: 100px;
+        height: 32px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
     .hero {
         grid-template-columns: 1fr;
         gap: 48px;
