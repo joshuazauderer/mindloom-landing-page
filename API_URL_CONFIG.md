@@ -86,3 +86,21 @@ After updating the API URL:
 - Next.js app is not deployed
 - Check Vercel deployment status
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -71,3 +71,21 @@ After redeploying:
 - Verify Supabase service role key starts with `sb_secret_...`
 - Make sure the `waitlist` table exists in Supabase (run `supabase-setup.sql`)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

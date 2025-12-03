@@ -198,3 +198,21 @@ If you're still having issues:
 3. Contact your domain registrar support
 4. Check Vercel documentation: https://vercel.com/docs/concepts/projects/domains
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
