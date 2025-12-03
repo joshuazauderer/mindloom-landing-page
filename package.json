@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "dev": "node server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "compare-env": "node compare-env-vars.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.80.0",
