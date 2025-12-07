@@ -11,7 +11,8 @@ const MIME_TYPES = {
   '.css': 'text/css',
   '.json': 'application/json',
   '.png': 'image/png',
-  '.jpg': 'image/jpg',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
   '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
   '.wav': 'audio/wav',
@@ -123,10 +124,37 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // Serve static files
-  let filePath = '.' + req.url;
-  if (filePath === './') {
-    filePath = './index.html';
+  // Serve static files - handle both Vercel serverless and local environments
+  const baseDir = process.cwd();
+  let filePath;
+  
+  if (req.url === '/') {
+    filePath = path.join(baseDir, 'index.html');
+  } else if (req.url.startsWith('/public/')) {
+    // Handle /public/ paths - try public directory, then root
+    const filename = req.url.replace('/public/', '');
+    const publicPath = path.join(baseDir, 'public', filename);
+    const rootPath = path.join(baseDir, filename);
+    
+    if (fs.existsSync(publicPath)) {
+      filePath = publicPath;
+    } else if (fs.existsSync(rootPath)) {
+      filePath = rootPath;
+    } else {
+      filePath = path.join(baseDir, req.url);
+    }
+  } else {
+    // Direct file requests - try root first, then public
+    const rootFile = path.join(baseDir, req.url);
+    const publicFile = path.join(baseDir, 'public', req.url);
+    
+    if (fs.existsSync(rootFile)) {
+      filePath = rootFile;
+    } else if (fs.existsSync(publicFile)) {
+      filePath = publicFile;
+    } else {
+      filePath = rootFile;
+    }
   }
 
   const extname = String(path.extname(filePath)).toLowerCase();
@@ -151,5 +179,11 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });
+
+
+
+
+
+
 
 
