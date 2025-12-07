@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "build": "mkdir -p public && cp -r *.html *.css *.png *.jpg *.mp4 public/ 2>/dev/null || true",
+    "build": "mkdir -p public && cp -r *.html *.css *.png *.jpg *.mp4 public/ 2>/dev/null || true && cp -r videos public/ 2>/dev/null || true",
     "compare-env": "node compare-env-vars.js"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.80.0",
-    "dotenv": "^16.6.1"
+    "@supabase/supabase-js": "^2.86.2",
+    "dotenv": "^17.2.3"
   },
   "engines": {
     "node": ">=18.x"
