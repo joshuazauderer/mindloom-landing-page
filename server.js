@@ -3,12 +3,16 @@ const fs = require('fs');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 const { inject } = require('@vercel/analytics');
+const { injectSpeedInsights } = require('@vercel/speed-insights/node');
 require('dotenv').config({ path: '.env.local' });
 
 const PORT = 3004;
 
 // Initialize Vercel Web Analytics
 inject();
+
+// Initialize Vercel Speed Insights (must run on client side, initialized here for Node.js server)
+injectSpeedInsights();
 
 const MIME_TYPES = {
   '.html': 'text/html',
