@@ -2,9 +2,14 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
+const { inject } = require('@vercel/analytics');
 require('dotenv').config({ path: '.env.local' });
 
 const PORT = 3004;
+
+// Initialize Vercel Web Analytics
+inject();
+
 const MIME_TYPES = {
   '.html': 'text/html',
   '.js': 'text/javascript',
